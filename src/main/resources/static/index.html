@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+  <script src="index.js"></script>
+</head>
+
+<body>
+
+<div class="container" ng-controller="ngController">
+  <div class="d-flex justify-content-around">
+    <h1>Product Shop</h1>
+  </div>
+
+  <h3>Products</h3>
+  <table class="table table-hover" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Title</td>
+      <td>Price</td>
+      <td>Amount</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in Products">
+      <td>{{p.name}}</td>
+      <td>{{p.title}}</td>
+      <td>{{p.price}}</td>
+      <td>{{p.amount}}</td>
+      <td>
+        <input type="button" value="Delete" class="btn btn-danger" ng-click="deleteProduct(p.id)">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Save new product</h3>
+  <form novalidate ng-submit="saveProduct()">
+    <div class="form-group col-md-6">
+      <label >Name</label>
+      <input class="form-control" type="text" ng-model="newProduct.name">
+    </div>
+    <div class="form-group col-md-6">
+      <label >Price</label>
+      <input class="form-control" type="number" ng-model="newProduct.price">
+    </div>
+    <div class="form-group col-md-6">
+      <label >Title</label>
+      <input class="form-control" type="text" ng-model="newProduct.title">
+    </div>
+    <div class="form-group col-md-6">
+      <label >Amount</label>
+      <input class="form-control" type="text" ng-model="newProduct.amount">
+    </div>
+    <div>
+      <button class="btn btn-success" type="submit">Save</button>
+    </div>
+  </form>
+
+</div>
+</body>
+</html>
